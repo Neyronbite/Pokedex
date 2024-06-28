@@ -1,0 +1,27 @@
+@mixin heading-font() {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 25px;
+}
+
+@mixin container(
+  $gap: 25px,
+  $padding: 0px 0px,
+  $justify-content: center,
+  $align-items: center
+) {
+  background: $container-bg;
+  box-shadow: $box-shadow;
+
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  width: 100%;
+  margin: auto;
+  padding: $padding;
+}

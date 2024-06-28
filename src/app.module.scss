@@ -1,0 +1,8 @@
+@import "./css/resources.scss";
+
+.app {
+  @include container($align-items: start);
+
+  background: url(https://wallpapercave.com/wp/wp11591833.png) fixed;
+  min-height: 100vh;
+}
