@@ -1,11 +1,14 @@
 import React from "react";
-import logo from "src/img/favicon.ico";
+import logo from "../../img/logo2.png";
+
+import styles from "./header.module.scss";
 
 const Header = (props) => {
   return (
-    <header>
-      <img src={logo} className="logo" />
-      {props.text}
+    <header className={styles.header}>
+      <a href="#">
+        <img src={logo} />
+      </a>
     </header>
   );
 };

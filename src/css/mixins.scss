@@ -1,19 +1,23 @@
-@mixin heading-font() {
+@import "./variables.scss";
+
+@mixin heading-font($font-size: 25px) {
   font-family: "Edu NSW ACT Foundation", cursive;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
-  font-size: 25px;
+  font-size: font-size;
 }
 
 @mixin container(
   $gap: 25px,
   $padding: 0px 0px,
   $justify-content: center,
-  $align-items: center
+  $align-items: center,
+  $height: 100%
 ) {
+  @include shadows($light-white);
+
   background: $container-bg;
-  box-shadow: $box-shadow;
 
   display: flex;
   align-items: $align-items;
@@ -22,6 +26,11 @@
   gap: $gap;
 
   width: 100%;
+  height: $height;
   margin: auto;
   padding: $padding;
+}
+
+@mixin shadows($color: $dark-gray) {
+  box-shadow: 0 0 3px 1px $color;
 }

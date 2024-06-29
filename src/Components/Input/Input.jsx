@@ -1,12 +1,13 @@
 import React from "react";
 
-// import styles from "./input.module.css";
+import styles from "./input.module.scss";
 
 const Input = ({
   value,
-  handleChange = null,
+  handleChange = (e) => null,
   type = "text",
   placeholder = "name",
+  className = "",
 }) => {
   return (
     <div>
@@ -17,6 +18,7 @@ const Input = ({
         onChange={(e) => {
           handleChange(e.target.value);
         }}
+        className={className + " " + styles["x-large-text"]}
       />
     </div>
   );

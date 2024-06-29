@@ -1,0 +1,35 @@
+@import "../../css/resources.scss";
+
+.pagination-ul {
+  @include container($gap: 5px, $padding: 5px);
+
+  li a {
+    border-radius: 70px;
+    padding: 0.1rem 1rem;
+    border: $purple-blue 1px solid;
+    cursor: pointer;
+    color: $purple-blue;
+  }
+
+  li.previous a,
+  li.next a,
+  li.break a {
+    border-color: transparent;
+  }
+
+  .selected a {
+    background-color: $purple-blue;
+    border-color: transparent;
+    color: $white;
+    min-width: 32px;
+  }
+
+  .disabled a {
+    color: $dark-gray;
+  }
+
+  .disable,
+  .disabled a {
+    cursor: default;
+  }
+}

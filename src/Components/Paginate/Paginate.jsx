@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
-import styles from "./paginate.module.css";
+import "./paginate.scss";
 
 const Paginate = ({ pageCount, currentPage, setPage }) => {
   const handlePageClick = (e) => {
@@ -9,18 +9,16 @@ const Paginate = ({ pageCount, currentPage, setPage }) => {
   };
 
   return (
-    <>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        className={styles["react-paginate"]}
-      />
-    </>
+    <ReactPaginate
+      breakLabel="..."
+      nextLabel=">"
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={5}
+      pageCount={pageCount}
+      previousLabel="<"
+      renderOnZeroPageCount={null}
+      className="pagination-ul"
+    />
   );
 };
 

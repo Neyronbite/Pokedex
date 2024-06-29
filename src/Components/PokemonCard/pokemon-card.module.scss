@@ -1,14 +1,15 @@
-@import "../../css/variables.scss";
+@import "../../css/resources.scss";
 
 $dark-blue: #2e5579;
-$image-background: url(https://img.freepik.com/free-vector/gradient-zoom-effect-background_23-2149751055.jpg);
+$image-background: url(https://st2.depositphotos.com/1448225/9009/v/600/depositphotos_90095086-stock-illustration-manga-comics-radial-speed-lines.jpg);
 
 .card {
+  @include shadows;
+
   height: 265px;
   width: 175px;
-  background-color: #cbc3e3;
+  background-color: $light-purple;
   border: 5px solid black;
-  box-shadow: $box-shadow;
 
   &-image {
     border-bottom: 5px solid #000;
@@ -16,6 +17,8 @@ $image-background: url(https://img.freepik.com/free-vector/gradient-zoom-effect-
 
     height: 75%;
     background: $image-background;
+    background-position: center center;
+    background-size: 200%;
   }
 
   &-image > img {
@@ -24,10 +27,16 @@ $image-background: url(https://img.freepik.com/free-vector/gradient-zoom-effect-
     width: 100%;
     height: 100%;
   }
+
   &-heading {
     font-family: "Open Sans Condensed", sans-serif;
     text-align: center;
-    color: #2e5579;
+    color: $blue;
     word-wrap: break-word;
+  }
+
+  &:hover {
+    animation-name: bounce;
+    animation-duration: 0.3s;
   }
 }

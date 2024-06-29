@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
+import ReactDropdown from "react-dropdown";
+
+import styles from "./select.module.scss";
 
 const Select = ({
   options,
   selectedOption,
   setSelectedOption,
-  defaultText = "All Types",
+  defaultText = "default",
+  defaultValue = "",
+  placeholder = "Select an option",
 }) => {
   const handleChange = (e) => {
-    setSelectedOption(
-      e.target.selectedOptions[0].value === defaultText
-        ? ""
-        : e.target.selectedOptions[0].value
+    const val = e.target.selectedOptions[0].value.replace(
+      defaultText,
+      defaultValue
     );
-    //TODO fix grdon
+    setSelectedOption(val);
   };
 
-  return options ? (
-    <select onChange={handleChange} value={selectedOption || defaultText}>
+  if (!options) {
+    return "Loading...";
+  }
+  return (
+    <select
+      className={styles.container}
+      onChange={handleChange}
+      value={selectedOption || defaultText}
+    >
       {options.map((item) => (
-        <option key={item}>{item || defaultText}</option>
+        <option key={item}>{item}</option>
       ))}
     </select>
-  ) : (
-    "Loading..."
   );
 };
 

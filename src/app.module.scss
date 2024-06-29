@@ -3,6 +3,10 @@
 .app {
   @include container($align-items: start);
 
-  background: url(https://wallpapercave.com/wp/wp11591833.png) fixed;
+  //background: $white fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(https://www.chromethemer.com/download/hd-wallpapers/water-pokemon-7680x4320.jpg);
   min-height: 100vh;
 }

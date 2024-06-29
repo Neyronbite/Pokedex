@@ -1,0 +1,9 @@
+@keyframes bounce {
+  5%,
+  95% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+}

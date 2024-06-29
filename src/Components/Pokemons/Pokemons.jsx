@@ -10,6 +10,8 @@ import {
 import Paginate from "../Paginate/Paginate";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
+import CircleSelect from "../CircleSelect/CircleSelect";
+import { DEFAULT_TYPE_TEXT } from "../../constants/global";
 
 import styles from "./pokemons.module.scss";
 
@@ -31,14 +33,13 @@ const Pokemons = () => {
   useEffect(() => {
     const getTypesAsync = async () => {
       const data = await getTypes();
-      data.push("");
+      data.push(DEFAULT_TYPE_TEXT);
 
       setTypes(data);
     };
 
     const getAllPokemonsWithIdsAsync = async () => {
       const data = await getAllPokemonsWithIds();
-      console.log(data);
 
       setAllPokemonsWithIds(data);
     };
@@ -75,11 +76,25 @@ const Pokemons = () => {
   return (
     <div>
       <div className={styles["input-bar"]}>
+        <Input
+          value="Random Pokemon"
+          handleChange={null}
+          type="button"
+          className={styles["rand-pokemons"]}
+        />
         <Input value={search} handleChange={handleSearch} />
+        {/* TODO random pokemon */}
         <Select
           selectedOption={type}
           setSelectedOption={setType}
           options={types}
+          defaultText={DEFAULT_TYPE_TEXT}
+        />
+        <CircleSelect
+          selectedOption={type}
+          setSelectedOption={setType}
+          options={types}
+          defaultText={DEFAULT_TYPE_TEXT}
         />
       </div>
       <div className={styles.cards}>
@@ -91,7 +106,7 @@ const Pokemons = () => {
           />
         ))}
       </div>
-      <div className="container">
+      <div className={styles["pagination-container"]}>
         <Paginate
           setPage={setPage}
           currentPage={page}

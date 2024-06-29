@@ -1,0 +1,12 @@
+//TODO change
+@import "../../css/resources.scss";
+
+.header {
+  @include container;
+
+  // background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2a860bb0-1d61-4ac2-b998-cc9196e003be/d7j7rll-6af52978-b3f1-4086-a1c6-11a05f83b97c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJhODYwYmIwLTFkNjEtNGFjMi1iOTk4LWNjOTE5NmUwMDNiZVwvZDdqN3JsbC02YWY1Mjk3OC1iM2YxLTQwODYtYTFjNi0xMWEwNWY4M2I5N2MuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.svuGMxeubF9Ttdafrb56Xsqju1xq4AahTH04DyfMFdk);
+  background: none;
+  h1 {
+    @include heading-font(50px);
+  }
+}
