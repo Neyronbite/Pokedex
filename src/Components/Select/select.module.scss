@@ -1,4 +1,6 @@
+@import "../../css/resources.scss";
+
 .container {
-  font-size: x-large;
+  @include x_large_text;
   display: flex;
 }

@@ -32,13 +32,13 @@ const PokemonCard = ({ name, allPokemonsWithIds }) => {
       : ALT_IMG_URL + idStr + ALT_IMG_URL_FORMAT;
 
   return (
-    <div className={styles["card"]}>
-      <div className={styles["card-image"]}>
+    <div className={styles.card}>
+      <div className={styles.card__image}>
         {/* TODO fix hardcoded url */}
         <img src={imgUrl} alt="" />
       </div>
       <div>
-        <h3 className={styles["card-heading"]}>{name}</h3>
+        <h3 className={styles.card__heading}>{name}</h3>
       </div>
     </div>
   );

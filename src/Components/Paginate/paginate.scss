@@ -1,14 +1,14 @@
 @import "../../css/resources.scss";
 
-.pagination-ul {
+.pagination_ul {
   @include container($gap: 5px, $padding: 5px);
 
   li a {
     border-radius: 70px;
     padding: 0.1rem 1rem;
-    border: $purple-blue 1px solid;
+    border: $purple_blue 1px solid;
     cursor: pointer;
-    color: $purple-blue;
+    color: $purple_blue;
   }
 
   li.previous a,
@@ -18,14 +18,14 @@
   }
 
   .selected a {
-    background-color: $purple-blue;
+    background-color: $purple_blue;
     border-color: transparent;
     color: $white;
     min-width: 32px;
   }
 
   .disabled a {
-    color: $dark-gray;
+    color: $dark_gray;
   }
 
   .disable,

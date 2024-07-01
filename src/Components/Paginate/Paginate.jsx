@@ -17,7 +17,7 @@ const Paginate = ({ pageCount, currentPage, setPage }) => {
       pageCount={pageCount}
       previousLabel="<"
       renderOnZeroPageCount={null}
-      className="pagination-ul"
+      className="pagination_ul"
     />
   );
 };

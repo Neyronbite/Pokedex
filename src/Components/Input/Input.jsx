@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./input.module.scss";
 
 const Input = ({
   value,
   handleChange = (e) => null,
+  handleClick = (e) => null,
   type = "text",
   placeholder = "name",
   className = "",
+  datalistOptions = null,
 }) => {
+  const [datalistId, setDatalistId] = useState(Math.random().toString());
+
   return (
-    <div>
+    <>
       <input
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => {
-          handleChange(e.target.value);
-        }}
-        className={className + " " + styles["x-large-text"]}
+        onChange={handleChange}
+        onClick={handleClick}
+        className={`${className} ${styles.x_large_text}`}
+        list={datalistId}
       />
-    </div>
+      {datalistOptions && (
+        <datalist id={datalistId} className={styles.datalist}>
+          {datalistOptions.map((item) => (
+            <option value={item}></option>
+          ))}
+        </datalist>
+      )}
+    </>
   );
 };
 

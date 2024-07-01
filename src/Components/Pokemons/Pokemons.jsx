@@ -10,7 +10,6 @@ import {
 import Paginate from "../Paginate/Paginate";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
-import CircleSelect from "../CircleSelect/CircleSelect";
 import { DEFAULT_TYPE_TEXT } from "../../constants/global";
 
 import styles from "./pokemons.module.scss";
@@ -25,8 +24,9 @@ const Pokemons = () => {
   const [page, setPage] = useState(1);
   const [type, setType] = useState("");
 
-  const handleSearch = (value) => {
-    setSearch(value);
+  //TODO useCllback
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
     setPage(1);
   };
 
@@ -72,30 +72,34 @@ const Pokemons = () => {
   if (!pokemons) {
     return <p>Loading . . .</p>;
   }
-
+  console.log(allPokemons);
   return (
     <div>
-      <div className={styles["input-bar"]}>
-        <Input
-          value="Random Pokemon"
-          handleChange={null}
-          type="button"
-          className={styles["rand-pokemons"]}
-        />
-        <Input value={search} handleChange={handleSearch} />
+      <div className={styles.input_bar}>
+        <div>
+          <Input
+            value="Random Pokemon"
+            handleClick={(e) => console.log(e.target.value)}
+            type="button"
+            className={styles.rand_pokemon}
+          />
+        </div>
+        <div>
+          <Input
+            value={search}
+            handleChange={handleSearch}
+            // datalistOptions={allPokemons.map((p) => p.name)}
+          />
+        </div>
         {/* TODO random pokemon */}
-        <Select
-          selectedOption={type}
-          setSelectedOption={setType}
-          options={types}
-          defaultText={DEFAULT_TYPE_TEXT}
-        />
-        <CircleSelect
-          selectedOption={type}
-          setSelectedOption={setType}
-          options={types}
-          defaultText={DEFAULT_TYPE_TEXT}
-        />
+        <div>
+          <Select
+            selectedOption={type}
+            setSelectedOption={setType}
+            options={types}
+            defaultText={DEFAULT_TYPE_TEXT}
+          />
+        </div>
       </div>
       <div className={styles.cards}>
         {pokemons.results.map((item) => (
@@ -106,7 +110,7 @@ const Pokemons = () => {
           />
         ))}
       </div>
-      <div className={styles["pagination-container"]}>
+      <div className={styles.pagination_container}>
         <Paginate
           setPage={setPage}
           currentPage={page}
