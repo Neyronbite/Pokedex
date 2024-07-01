@@ -11,7 +11,8 @@ const Input = ({
   className = "",
   datalistOptions = null,
 }) => {
-  const [datalistId, setDatalistId] = useState(Math.random().toString());
+  // Id for inputs list attribute
+  const [datalistId] = useState(Math.random().toString());
 
   return (
     <>

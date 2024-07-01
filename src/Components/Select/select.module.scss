@@ -1,6 +1,5 @@
 @import "../../css/resources.scss";
 
 .container {
-  @include x_large_text;
-  display: flex;
+  background-color: $white;
 }

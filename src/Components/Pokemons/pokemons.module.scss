@@ -1,12 +1,13 @@
 @import "../../css/resources.scss";
 
 .input_bar {
-  @include container($padding: 25px, $gap: 35px);
-  @include heading_font;
+  @include container($padding: 25px, $gap: 40px);
 
-  select,
-  input {
+  &__item {
     @include shadows;
+    @include heading_font;
+    @include x_large_text;
+    @include container($padding: 1px);
     width: 110%;
   }
 }
@@ -18,8 +19,6 @@
 }
 
 .rand_pokemon {
-  @include heading_font;
-
   background-color: $magenta;
   color: $white;
 

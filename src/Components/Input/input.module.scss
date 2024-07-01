@@ -1,9 +1,5 @@
 @import "../../css/resources.scss";
 
-.x_large_text {
-  @include x_large_text;
-}
-
 .datalist {
   @include hide_overflow;
   max-height: 200px;

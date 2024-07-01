@@ -19,6 +19,7 @@ $image-background: url(https://st2.depositphotos.com/1448225/9009/v/600/depositp
     background: $image-background;
     background-position: center center;
     background-size: 200%;
+    cursor: pointer;
   }
 
   &__image > img {

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import ReactDropdown from "react-dropdown";
+import React from "react";
 
+import Loading from "../Loading/Loading";
 import styles from "./select.module.scss";
 
 const Select = ({
@@ -9,7 +9,7 @@ const Select = ({
   setSelectedOption,
   defaultText = "default",
   defaultValue = "",
-  placeholder = "Select an option",
+  className = "",
 }) => {
   const handleChange = (e) => {
     const val = e.target.selectedOptions[0].value.replace(
@@ -20,11 +20,11 @@ const Select = ({
   };
 
   if (!options) {
-    return "Loading...";
+    return <Loading />;
   }
   return (
     <select
-      className={styles.container}
+      className={`${styles.container} ${className}`}
       onChange={handleChange}
       value={selectedOption || defaultText}
     >
