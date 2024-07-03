@@ -12,7 +12,7 @@ const App = (props) => {
       <div className={styles.app}>
         <Header text="Pokemoon" />
         <Pokemons />
-        <MouseEffect count={100} delay={1} interval={1} opacity={0.5} />
+        <MouseEffect className={styles.mouse_effect} opacity={1} />
       </div>
     </>
   );

@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import Particle from "./Particle/Particle.jsx";
-
-import styles from "./mouse-effects.module.scss";
-
 const MouseEffect = ({
-  minSize = 5,
-  maxSize = 25,
   count = 40,
-  delay = 4,
-  interval = 4,
+  delay = 2,
+  interval = 2,
+  opacity = 0.5,
   startX = 500,
   startY = 500,
-  opacity = 0.1,
+  minSize = 5,
+  maxSize = 25,
+  hiding = true,
+  revertSize = false,
+  className = "",
 }) => {
   const [particles, setParticles] = useState([]);
   const mouseMoveEvent = useRef({});
@@ -31,21 +31,25 @@ const MouseEffect = ({
     let nextTempParticleOptions = null;
 
     for (let i = 0; i < count; i++) {
-      let currentTempParticleOptions = { x: startX + i, y: startY + i };
+      let currentTempParticleOptions = { left: startX + i, top: startY + i };
       const tempParticle = (
         <Particle
           key={i}
-          size={maxSize - (i * (maxSize - minSize)) / count}
-          x={startX + i}
-          y={startY + i}
+          size={
+            revertSize
+              ? minSize + (i * (maxSize - minSize)) / count
+              : maxSize - (i * (maxSize - minSize)) / count
+          }
           count={count}
           current={i}
           opacity={opacity}
           delay={delay}
           interval={interval}
+          hiding={hiding}
           mouseMoveEvent={mouseMoveEvent}
           currentParticleOptions={currentTempParticleOptions}
           nextParticleOption={nextTempParticleOptions}
+          className={className}
         />
       );
       nextTempParticleOptions = currentTempParticleOptions;

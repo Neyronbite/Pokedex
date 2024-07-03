@@ -1,10 +1,10 @@
-.item {
-  // opacity: 0.05;
-  // background-color: purple;
-  background: linear-gradient(45deg, #2821ad, #af63bd);
-  position: absolute;
-  border-radius: 50px;
+.main {
+  position: absolute !important;
   z-index: 5;
   pointer-events: none;
-  // transform: skew(20deg, 50deg);
+}
+
+.default_style {
+  background: linear-gradient(45deg, #2821ad, #af63bd);
+  border-radius: 50px;
 }
