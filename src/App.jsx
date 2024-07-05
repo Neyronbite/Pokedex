@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import Pokemons from "./Components/Pokemons/Pokemons";
 import Header from "./Components/Header/Header";
-import MouseEffect from "./Components/MouseEffect/MouseEffect";
+import MouseEffect from "./Components/MouseFollowingEffect/MouseFollowingEffect";
 
 import styles from "./app.module.scss";
 

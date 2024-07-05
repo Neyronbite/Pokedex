@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 
 import Particle from "./Particle/Particle.jsx";
 const MouseEffect = ({
-  count = 40,
-  delay = 2,
-  interval = 2,
+  count = 10,
+  delay = 1,
+  interval = 15,
   opacity = 0.5,
   startX = 500,
   startY = 500,
