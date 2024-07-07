@@ -22,7 +22,7 @@ const Particle = ({
   const [opacityStyle, setOpacityStyle] = useState(opacity);
 
   useEffect(() => {
-    setInterval(() => {
+    const initInterval = setInterval(() => {
       const nextX =
         nextParticleOptionRef.current?.left || mouseMoveEvent.current.pageX;
       const nextY =
@@ -54,6 +54,10 @@ const Particle = ({
         counter.current--;
       }
     }, interval);
+
+    return () => {
+      clearInterval(initInterval);
+    };
   }, []);
 
   return (
