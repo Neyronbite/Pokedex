@@ -10,5 +10,3 @@ export const IMG_URL_FORMAT = ".png";
 export const ALT_IMG_URL_FORMAT = ".png";
 
 export const DEFAULT_TYPE_TEXT = "All Types";
-
-export const POKEMONS_COUNT = 1025;

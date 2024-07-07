@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  ALT_IMG_URL,
-  ALT_IMG_URL_FORMAT,
-  IMG_URL,
-  IMG_URL_FORMAT,
-} from "../../constants/global";
 import Loading from "../Loading/Loading";
+import { getPokemonImageUrl } from "../../api/pokemon-info";
 
 import styles from "./pokemon-card.module.scss";
 
@@ -18,22 +13,7 @@ const PokemonCard = ({ name, allPokemonsWithIds, onClick = null }) => {
   useEffect(() => {
     if (!allPokemonsWithIds) return;
 
-    const id = allPokemonsWithIds[name];
-
-    const idStr =
-      id.toString().length < 2
-        ? "00" + id.toString()
-        : id.toString().length < 3
-        ? "0" + id.toString()
-        : id.toString();
-
-    const calcId = id > 1025 ? 10000 + id - 1025 : id;
-
-    setImgUrl(
-      id.toString().length > 3
-        ? IMG_URL + calcId + IMG_URL_FORMAT
-        : ALT_IMG_URL + idStr + ALT_IMG_URL_FORMAT
-    );
+    setImgUrl(getPokemonImageUrl(name, allPokemonsWithIds));
   }, [allPokemonsWithIds]);
 
   return (
