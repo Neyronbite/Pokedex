@@ -14,7 +14,7 @@ const PokemonCard = ({ name, allPokemonsWithIds, onClick = null }) => {
     if (!allPokemonsWithIds) return;
 
     setImgUrl(getPokemonImageUrl(name, allPokemonsWithIds));
-  }, [allPokemonsWithIds]);
+  }, [allPokemonsWithIds, name]);
 
   return (
     <div className={styles.card}>

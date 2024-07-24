@@ -57,7 +57,19 @@ const MouseEffect = ({
     }
 
     setParticles(tempParticles);
-  }, []);
+  }, [
+    className,
+    count,
+    delay,
+    hiding,
+    interval,
+    maxSize,
+    minSize,
+    opacity,
+    revertSize,
+    startX,
+    startY,
+  ]);
 
   return <>{particles}</>;
 };

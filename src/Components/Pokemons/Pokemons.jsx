@@ -25,13 +25,10 @@ const Pokemons = () => {
   const [page, setPage] = useState(1);
   const [type, setType] = useState("");
 
-  const handleSearch = useCallback(
-    (e) => {
-      setSearch(e.target.value);
-      setPage(1);
-    },
-    [search]
-  );
+  const handleSearch = useCallback((e) => {
+    setSearch(e.target.value);
+    setPage(1);
+  }, []);
 
   useEffect(() => {
     // Fetch Pokemon types on component mount

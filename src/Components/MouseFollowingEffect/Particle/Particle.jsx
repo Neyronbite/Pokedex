@@ -32,8 +32,8 @@ const Particle = ({
       // of course if hiding property is true
       if (
         hiding &&
-        nextX == currentParticleOptionsRef.current.left &&
-        nextY == currentParticleOptionsRef.current.top
+        nextX === currentParticleOptionsRef.current.left &&
+        nextY === currentParticleOptionsRef.current.top
       ) {
         setOpacityStyle(0);
       } else {
@@ -58,7 +58,7 @@ const Particle = ({
     return () => {
       clearInterval(initInterval);
     };
-  }, []);
+  }, [delay, hiding, interval, mouseMoveEvent, opacity, size]);
 
   return (
     <div
