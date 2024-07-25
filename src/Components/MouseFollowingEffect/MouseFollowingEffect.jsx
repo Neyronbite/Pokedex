@@ -17,15 +17,16 @@ const MouseEffect = ({
   const [particles, setParticles] = useState([]);
   const mouseMoveEvent = useRef({});
 
+  // adding event, that will give mouse position
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouseMoveEvent.current = e;
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    // document.addEventListener("click", handleMouseMove);
-  });
+  }, []);
 
+  // setting particles
   useEffect(() => {
     const tempParticles = [];
     let nextTempParticleOptions = null;

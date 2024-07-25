@@ -25,6 +25,7 @@ const Input = ({
         className={`${className} ${styles.x_large_text}`}
         list={datalistId}
       />
+      {/* Datalist  */}
       {datalistOptions && (
         <datalist id={datalistId} className={styles.datalist}>
           {datalistOptions.map((item) => (

@@ -1,23 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import Loading from "../Loading/Loading";
 import { getPokemonImageUrl } from "../../api/pokemon-info";
 
 import styles from "./pokemon-card.module.scss";
+import { PokemonContext } from "../Context/PokemonContext";
 
 const PokemonCard = ({ name, allPokemonsWithIds, onClick = null }) => {
+  const { setPokemonId } = useContext(PokemonContext);
   const [imgUrl, setImgUrl] = useState(null);
+  const [id, setId] = useState(null);
+
+  const handleClick = useCallback(() => {
+    setPokemonId(id);
+  }, [setPokemonId, id]);
 
   // This useEffect calculating url for pokemon image,
   // because the image resource api does not support all pokemons from pokeapi
   useEffect(() => {
     if (!allPokemonsWithIds) return;
 
-    setImgUrl(getPokemonImageUrl(name, allPokemonsWithIds));
-  }, [allPokemonsWithIds, name]);
+    setId(allPokemonsWithIds[name]);
+    setImgUrl(getPokemonImageUrl(allPokemonsWithIds[name]));
+  }, [allPokemonsWithIds, name, setId]);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       {!allPokemonsWithIds && <Loading />}
       {allPokemonsWithIds && (
         <>

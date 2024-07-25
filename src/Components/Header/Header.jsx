@@ -8,11 +8,13 @@ import styles from "./header.module.scss";
 const Header = () => {
   const [enableMouseEffect, setEnableMouseEffect] = useState();
 
+  // enabling mouse effect relaying on localstorage
   useEffect(() => {
     const item = JSON.parse(localStorage.getItem("enableMouseEffect"));
     setEnableMouseEffect(item);
   }, []);
 
+  // enable/disable mouse effect
   const handleMouseEffectRadioClick = () => {
     setEnableMouseEffect(!enableMouseEffect);
     localStorage.setItem("enableMouseEffect", !enableMouseEffect);

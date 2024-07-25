@@ -5,9 +5,7 @@ import {
   IMG_URL_FORMAT,
 } from "../constants/global";
 
-export function getPokemonImageUrl(name, allPokemonsWithIds) {
-  const id = allPokemonsWithIds[name];
-
+export function getPokemonImageUrl(id) {
   const idStr =
     id.toString().length < 2
       ? "00" + id.toString()
@@ -22,4 +20,8 @@ export function getPokemonImageUrl(name, allPokemonsWithIds) {
       ? IMG_URL + calcId + IMG_URL_FORMAT
       : ALT_IMG_URL + idStr + ALT_IMG_URL_FORMAT;
   return result;
+}
+
+export async function getPokemonInfo(id) {
+  return "Test";
 }

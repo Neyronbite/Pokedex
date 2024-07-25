@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 
 import "./paginate.scss";
 
+// simple component, based on react-paginate
 const Paginate = ({ pageCount, currentPage, setPage }) => {
   const handlePageClick = (e) => {
     setPage(e.selected + 1);
