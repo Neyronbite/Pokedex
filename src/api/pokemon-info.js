@@ -22,7 +22,7 @@ export async function getPokemonImageUrl(id) {
 }
 
 export async function getPokemonInfo(id) {
-  const data = await API.get("pokemon/" + id);
+  const { data } = await API.get("pokemon/" + id);
 
   return data;
 }

@@ -66,85 +66,95 @@ const PokemonInfo = () => {
     }
   }, ref);
 
+  console.log(pokemonData);
   return (
     <>
-      <Modal isOpen={isOpen}>
-        <div ref={ref} className={`${styles.container} ${styles.flex_col}`}>
-          <h1 className={styles.heading}> Name, ID</h1>
-          <div
-            className={`${styles.flex} ${styles.flex_row} ${styles.flex_between}`}
-          >
-            <div className={`${styles.flex} ${styles.flex_col}`}>
-              <div className={`${styles.flex} ${styles.flex_row}`}>
-                <div>
-                  <img className={styles.image} src={imageUrl} alt="" />
+      {pokemonData && (
+        <Modal isOpen={isOpen}>
+          <div ref={ref} className={`${styles.container} ${styles.flex_col}`}>
+            {/* Header */}
+            <h1 className={styles.heading}> Name, ID</h1>
+            {/* Content */}
+            <div
+              className={`${styles.flex} ${styles.flex_row} ${styles.flex_between}`}
+            >
+              {/* Left side */}
+              <div className={`${styles.flex} ${styles.flex_col}`}>
+                <div className={`${styles.flex} ${styles.flex_row}`}>
+                  {/* Image */}
+                  <div>
+                    <img className={styles.image} src={imageUrl} alt="" />
+                  </div>
+                  {/* main info */}
+                  <div className={`${styles.flex} ${styles.flex_col}`}>
+                    <div>
+                      <span className={styles.stat_text}>Height: </span>{" "}
+                      {pokemonData.height / 10} m
+                    </div>
+                    <div>
+                      {" "}
+                      <span className={styles.stat_text}>Weight: </span>{" "}
+                      {pokemonData.weight / 10} kg
+                    </div>
+                    <div>
+                      <span className={styles.stat_text}>Category: </span>
+                      Seed
+                    </div>
+                    <div>
+                      <span className={styles.stat_text}>Types: </span> grass
+                      poison
+                    </div>
+                    <div>
+                      <span className={styles.stat_text}>Abilities: </span>
+                      {pokemonData.abilities.map((a) => a.ability.name + " ")}
+                    </div>
+                    <div>
+                      <span className={styles.stat_text}>Genders: </span>
+                      male female
+                    </div>
+                  </div>
                 </div>
-                <div className={`${styles.flex} ${styles.flex_col}`}>
-                  <div>
-                    <span className={styles.stat_text}>Height: </span> 1m (3'3")
-                  </div>
-                  <div>
-                    {" "}
-                    <span className={styles.stat_text}>Weight: </span> 13kg
-                    (28.7lbs)
-                  </div>
-                  <div>
-                    <span className={styles.stat_text}>Category: </span>
-                    Seed
-                  </div>
-                  <div>
-                    <span className={styles.stat_text}>Types: </span> grass
-                    poison
-                  </div>
-                  <div>
-                    <span className={styles.stat_text}>Abilities: </span>
-                    overgrow
-                  </div>
-                  <div>
-                    <span className={styles.stat_text}>Genders: </span>
-                    male female
-                  </div>
+                {/*  */}
+                <h5>
+                  When the bulb on its back grows large, it appears to lose the
+                  ability to stand on its hind legs.
+                </h5>
+              </div>
+              {/* Right side */}
+              <div className={`${styles.flex} ${styles.flex_col}`}>
+                <h4>Stats</h4>
+                <div
+                  className={`${styles.flex} ${styles.flex_col} ${styles.no_gap}`}
+                >
+                  <Column name="name" count="5" />
+                  <Column name="name" count="5" />
+                  <Column name="name" count="5" />
+                  <Column name="name" count="5" />
+                  <Column name="name" count="5" />
+                  <Column name="name" count="5" />
+                </div>
+                <h4>Evolution</h4>
+                <div
+                  className={`${styles.flex} ${styles.flex_row} ${styles.align_center}`}
+                >
+                  <PokemonCard
+                    name="bulbasaur"
+                    allPokemonsWithIds={allPokemonsWithIds}
+                  />
+                  <h1>{" > "}</h1>
+                  <PokemonCard
+                    name="ivysaur"
+                    allPokemonsWithIds={allPokemonsWithIds}
+                  />
+                  <h1>{" > "}</h1>
+                  <PokemonCard
+                    name="venusaur"
+                    allPokemonsWithIds={allPokemonsWithIds}
+                  />
                 </div>
               </div>
-              <h5>
-                When the bulb on its back grows large, it appears to lose the
-                ability to stand on its hind legs.
-              </h5>
-            </div>
-            <div className={`${styles.flex} ${styles.flex_col}`}>
-              <h4>Stats</h4>
-              <div
-                className={`${styles.flex} ${styles.flex_col} ${styles.no_gap}`}
-              >
-                <Column name="name" count="5" />
-                <Column name="name" count="5" />
-                <Column name="name" count="5" />
-                <Column name="name" count="5" />
-                <Column name="name" count="5" />
-                <Column name="name" count="5" />
-              </div>
-              <h4>Evolution</h4>
-              <div
-                className={`${styles.flex} ${styles.flex_row} ${styles.align_center}`}
-              >
-                <PokemonCard
-                  name="bulbasaur"
-                  allPokemonsWithIds={allPokemonsWithIds}
-                />
-                <h1>{" > "}</h1>
-                <PokemonCard
-                  name="ivysaur"
-                  allPokemonsWithIds={allPokemonsWithIds}
-                />
-                <h1>{" > "}</h1>
-                <PokemonCard
-                  name="venusaur"
-                  allPokemonsWithIds={allPokemonsWithIds}
-                />
-              </div>
-            </div>
 
-            {/* <div className={`${styles.flex} ${styles.flex_col}`}>
+              {/* <div className={`${styles.flex} ${styles.flex_col}`}>
               <div>
                 
               </div>
@@ -174,9 +184,10 @@ const PokemonInfo = () => {
                 </div>
               </div>
             </div> */}
+            </div>
           </div>
-        </div>
-      </Modal>
+        </Modal>
+      )}
     </>
   );
 };
