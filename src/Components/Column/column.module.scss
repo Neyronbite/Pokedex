@@ -1,0 +1,22 @@
+@import "../../css/resources.scss";
+
+.item {
+  border: none;
+  border-radius: 2px;
+  background-color: $dark_gray;
+  width: 25px;
+  height: 12px;
+
+  &__active {
+    background-color: $purple_blue;
+  }
+}
+
+.container {
+  @include container($gap: 5px);
+  flex-direction: row;
+}
+
+.stat_name {
+  color: $light_blue;
+}

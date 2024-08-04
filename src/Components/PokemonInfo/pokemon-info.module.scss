@@ -1,9 +1,44 @@
 @import "../../css/resources.scss";
 
 .container {
-  @include container;
+  @include container($justify-content: space-around);
   @include shadows;
 
   background-color: $white;
-  overflow: scroll;
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+  gap: 35px;
+}
+
+.flex_row {
+  flex-direction: row;
+}
+
+.flex_col {
+  flex-direction: column;
+}
+
+.image {
+  padding: 50px;
+  width: 120%;
+}
+
+.stat_text {
+  font-size: 20px;
+  color: $light_blue;
+}
+
+.heading {
+  color: $magenta;
+}
+
+.no_gap {
+  gap: 0;
+}
+
+.align_center {
+  align-items: center;
 }
