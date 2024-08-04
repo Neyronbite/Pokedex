@@ -9,6 +9,7 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 import { PokemonContext } from "../Context/PokemonContext";
 import { getPokemonInfo } from "../../api/pokemon-info";
 import Modal from "../Modal/Modal";
+import styles from "./pokemon-info.module.scss";
 
 const PokemonInfo = () => {
   const { pokemonId, setPokemonId } = useContext(PokemonContext);
@@ -42,7 +43,9 @@ const PokemonInfo = () => {
   return (
     <>
       <Modal isOpen={isOpen}>
-        <div ref={ref}>{pokemonData}</div>
+        <div ref={ref} className={styles.container}>
+          {JSON.stringify(pokemonData)}
+        </div>
       </Modal>
     </>
   );

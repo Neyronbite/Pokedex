@@ -21,7 +21,12 @@ const PokemonCard = ({ name, allPokemonsWithIds, onClick = null }) => {
     if (!allPokemonsWithIds) return;
 
     setId(allPokemonsWithIds[name]);
-    setImgUrl(getPokemonImageUrl(allPokemonsWithIds[name]));
+
+    const getPokemonImageUrlAsync = async () => {
+      const url = await getPokemonImageUrl(allPokemonsWithIds[name]);
+      setImgUrl(url);
+    };
+    getPokemonImageUrlAsync();
   }, [allPokemonsWithIds, name, setId]);
 
   return (

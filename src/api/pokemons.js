@@ -1,4 +1,5 @@
 import { API, take, skip } from "../utils";
+import { API_URL } from "../constants/global";
 
 export function filterPokemons({
   allPokemons,
@@ -36,7 +37,12 @@ export async function getAllPokemonsWithIds() {
   const result = {};
 
   for (let i = 0; i < data.length; i++) {
-    result[data[i].name] = i + 1;
+    result[data[i].name] = Number(
+      data[i].url
+        .replace(API_URL + "pokemon/", "")
+        .replace("/", "")
+        .trim()
+    );
   }
 
   return result;

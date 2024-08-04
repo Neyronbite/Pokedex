@@ -1,0 +1,9 @@
+@import "../../css/resources.scss";
+
+.container {
+  @include container;
+  @include shadows;
+
+  background-color: $white;
+  overflow: scroll;
+}

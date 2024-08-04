@@ -1,7 +1,7 @@
 @import "../../css/resources.scss";
 
 .container {
-  @include container($height: 100vh);
+  @include container($padding: 5%);
 
   position: fixed;
   top: 0;
