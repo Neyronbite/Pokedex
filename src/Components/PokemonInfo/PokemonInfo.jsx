@@ -73,7 +73,10 @@ const PokemonInfo = () => {
         <Modal isOpen={isOpen}>
           <div ref={ref} className={`${styles.container} ${styles.flex_col}`}>
             {/* Header */}
-            <h1 className={styles.heading}> Name, ID</h1>
+            <h1 className={styles.heading}>
+              {" "}
+              {pokemonData.name} #{pokemonId}
+            </h1>
             {/* Content */}
             <div
               className={`${styles.flex} ${styles.flex_row} ${styles.flex_between}`}
@@ -114,11 +117,11 @@ const PokemonInfo = () => {
                     </div>
                   </div>
                 </div>
-                {/*  */}
-                <h5>
+                {/* TODO */}
+                {/* <h5>
                   When the bulb on its back grows large, it appears to lose the
                   ability to stand on its hind legs.
-                </h5>
+                </h5> */}
               </div>
               {/* Right side */}
               <div className={`${styles.flex} ${styles.flex_col}`}>

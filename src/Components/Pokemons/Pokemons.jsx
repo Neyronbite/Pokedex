@@ -14,6 +14,7 @@ import { DEFAULT_TYPE_TEXT } from "../../constants/global";
 
 import styles from "./pokemons.module.scss";
 import Loading from "../Loading/Loading";
+import RandomPokemon from "../RandomPokemon/RandomPokemon";
 
 const Pokemons = () => {
   const [allPokemonsWithIds, setAllPokemonsWithIds] = useState(null);
@@ -82,10 +83,7 @@ const Pokemons = () => {
     <div>
       <div className={styles.input_bar}>
         <div>
-          <Input
-            value="Random Pokemon"
-            handleClick={(e) => console.log(e.target.value)}
-            type="button"
+          <RandomPokemon
             className={`${styles.rand_pokemon} ${styles.input_bar__item}`}
           />
         </div>
